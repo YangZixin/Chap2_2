@@ -1,0 +1,115 @@
+\documentclass{article}
+\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage[onlyps]{altfont}
+\usepackage[top=1in,bottom=1in,left=1.25in,right=1.25in]{geometry}
+\usepackage[colorlinks,linkcolor=yellow,anchorcolor=blue,citecolor=green]{hyperref}
+\newcommand{\ud}{\mathrm{d}}
+\begin{CJK}{UTF8}{gbsn}
+	\author{杨梓鑫\ \ 10级物理弘毅班}
+	\title{第三次计算物理作业}
+	\date{学号：2010301020023}
+	\begin{document}
+	\maketitle
+\section{Problem}
+	\noindent \sf *2.21. Calculate the trajectory of a batted ball hit with the side spin. That is, let the rotation axis be vertical, corresponding to a ball that is hit so that it "hooks" or "slices." This is commonly encountered in a ball hit near one of the foul lines. Calculate how much a spin angular velocity of 2000 rpm would cause a line drive to curve, Is this consistent with your experiences? If not, calculate what angular velocity would be required.
+
+	\section{Analysis}
+	Now the definition of "side spin" is: Rotation around a vertical axis that makes a ball or other object curve in flight.
+\begin{enumerate} 
+\item \textit {When a right-handed golfer hits a ball with a clockwise sidespin (when viewed from the top), it is called a \emph{fade} or if extreme a \emph{slice} and the flight of the ball will curve to the right.}
+\item \textit {When a right-handed golfer hits a ball with an anticlockwise sidespin (when viewed from the top), it is called a \emph{draw} or if extreme a \emph{hook} and the flight of the ball will curve to the left.}
+\end{enumerate} 
+This is a nice kickass move in some racquet sports like tennis or tabletennis, or even golf (in Chinese Pingpong we call it "侧旋回击").\\
+\begin{figure}[htbp]
+\includegraphics[scale=0.6, trim=0cm 22cm 0cm 1.2cm]{/home/alexandra/CP_Hw/Chap3/sidespin.pdf}
+\end{figure}
+
+Suppose the pitcher pitch the ball through the direction with the wind, which is set as the $x$-axis. The equations of motion for the side-spinning ball are then:
+\begin{eqnarray*}
+	\frac{\ud x}{\ud t} &=& v_x\\
+	\frac{\ud v_x}{\ud t} &=& -\frac{B_2}{m}vv_x \pm \frac{S_0\omega}{m}v_z\\
+	\frac{\ud y}{\ud t} &=& v_y\\
+	\frac{\ud v_y}{\ud t} &=& -g\\
+	\frac{\ud z}{\ud t} &=& v_z\\
+	\frac{\ud v_z}{\ud t} &=& \pm \frac{S_0\omega}{m}v_x
+\end{eqnarray*}
+where the plus sign is for the \emph{slice}, and the minus sign for \emph{hook}.\\
+
+\section{Choosing the Parameters}
+According to this passage \href{http://www.livestrong.com/article/501890-the-average-pitching-velocity/}{THE AVERAGE PITCHING VELOCITY}:\\
+\begin{quotation}
+\tt Fastballs were found to typically fall between 85 and 95 mph, with sliders ranging from 80 to 85 mph, curveballs from 70 to 80 mph and both change-ups and knuckleballs ranging from 60 to 70 mph.\\
+\end{quotation}
+Thus we set our model as a right-handed pitcher pitching curveballs, whose initial velocity is 80 mph $\approx$ 35 m/s. And since he is right handed, 
+\begin{eqnarray*}
+v_z(0) &\leq& 0 \\
+\emph{hook}\Rightarrow \frac{\ud v_z}{\ud t} &\leq& 0\\
+\emph{slice}\Rightarrow \frac{\ud v_z}{\ud t}&\geq& 0
+\end{eqnarray*}
+Since the height of an average baseball pitcher is 6 feet 3 inches $\approx$ 1.9 m, and when pitching they usually bend knees and raise up their arms, the starting point will be fixed at $(x,y,z)=(0,2,0)$ m.\\
+Angular velocity $\omega=2000$ rpm $=2000\times 2\pi /60$ rad/s\\
+And $$\frac{S_0}{m}\approx 4.1\times 10^{-4}, \frac{B_2}{m}\approx 4\times 10^{-2}\textrm{m/s}$$
+\newpage
+\section{Basic view of Hooks and Slices}
+To start with, we set $v_x=35$ m/s and $v_y=v_z=0$ for both the hook and slice.\\\\
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=0.55]{/home/alexandra/CP_Hw/Chap3/BasicHS.pdf}
+\caption{Different projection of Hook and Slice Balls}
+\end{figure}
+It is easy to observe from Figure 1 that the contrary direction of Hook and Slice, and seemingly symmetric. But if we pitch the ball slightly left, i.e., $v_z(0)\leq 0$, the image turns to like Figure 2 to 4.\\
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=0.55]{/home/alexandra/CP_Hw/Chap3/HSvz=0_5.pdf}
+\caption{$v_z(0)=-0.5$ m/s, $v_x(0)=\sqrt{1224.75}$ m/s, $v_y(0)=0$ m/s}
+\end{figure}
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=0.75]{/home/alexandra/CP_Hw/Chap3/HSvz=1.pdf}
+\caption{$v_z(0)=-1$ m/s, $v_x(0)=\sqrt{1224}$ m/s, $v_y(0)=0$ m/s}
+\end{figure}
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=0.75]{/home/alexandra/CP_Hw/Chap3/HSvz=2.pdf}
+\caption{$v_z(0)=-2$ m/s, $v_x(0)=\sqrt{1221}$ m/s, $v_y(0)=0$ m/s}
+\end{figure}
+Then the whole trajectory is totally different now. The slice ball changes more greatly because it contains a sign change from negative to positive, which might be the reason why it is called as \emph{slice}. Meanwhile the \emph{hook} does not change too much except its increasing range with $v_z$ and less curly, which is reasonable too, because of the same direction of velocity and acceleration.
+\section{Velocity distribution}
+	\noindent \sf Now that we know that the different direction of velocity will severely affect the trajectory, we are going to investigate that how much would the direction affects the landing point. Here we still fix the initial total velocity as $35$ m/s because the strength of a pitcher is supposed to be the same. But we let $v_x(0)$ and $v_z(0)$ range from 0 to 35 m/s whereas $v_y(0)=\sqrt{35^2-v_x(0)^2-v_z(0)^2}$ and plot how the final landing point depends on them since that is what matters in a baseball game.  \\
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=0.35]{/home/alexandra/CP_Hw/Chap3/x_hook.pdf}
+\includegraphics[scale=0.35]{/home/alexandra/CP_Hw/Chap3/z_hook.pdf}
+\caption{Hook ball's landing x and z coordinate with  velocity}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=0.35]{/home/alexandra/CP_Hw/Chap3/x0-5_slice.pdf}
+\includegraphics[scale=0.35]{/home/alexandra/CP_Hw/Chap3/z0-5_slice.pdf}
+\caption{Slice ball's landing x and z coordinate with  velocity}
+\end{figure}
+In the Figure 5 and 6, the axis ranging from 0 to 35 represents $v_(x)$, and the one from $-5$ to 0 stands for $v_(z)$, the vertical axis is the distance the ball flies off. The pictures are consistent with the basic law that bigger speed means larger distance. And the $x$-displacement is less affected by $v_z$ than the $z$-displacement is affected by $v_x$ because the general largeness of $v_x$.
+\newpage
+
+\section{The discussion of angular velocity}
+\noindent \sf The former discussion is based on the fixed angular velocity $\omega=2000$ rpm. However, this angular velocity might not be the suitest for the best hook or slice ball. To throw a fair ball(好球), we set that the best angular velocity is the final $y\in [0.3, 1.5], x\in [18, 18.5], z$ should be the largest. \\
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=0.35]{/home/alexandra/CP_Hw/Chap3/Strike.pdf}
+\end{figure}
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=0.35]{/home/alexandra/CP_Hw/Chap3/bestOmega.pdf}
+\includegraphics[scale=0.35]{/home/alexandra/CP_Hw/Chap3/bestOmegaS.pdf}
+\caption{The fittest $\omega$ for hook and slice}
+\end{figure}
+Now fix the initial velocity at $(35, 3, -1)$ m/s, and range $\omega$ from $1500$ to $3000$. The result is shown in Figure 7. Horizontal axis for $\omega$ and vertical axis is $z$ displacement. And the reason of the right part which is a straight line is that it is not in the fair ball's strike zone. So the fittest $\omega=1914$ rad/s under the initial velocity $(35, 3, -1)$ m/s for Hook and $\omega=2190.5$ rad/s for Slice.\\
+\section{}
+\end{CJK}
+\end{document}
+
+
+
+
